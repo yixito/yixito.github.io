@@ -1,0 +1,98 @@
+.direcciones {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+}
+
+.paginas {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.sombra {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.sombra:hover {
+    box-shadow: 2px 2px 4px rgba(0 0 0 / 0.4);
+}
+
+.sombra:active {
+    box-shadow: none;
+    margin-top: 13px;
+    margin-left: 2px;
+}
+
+.estirar {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: padding 0.3s;
+}
+
+.estirar:hover {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.button-with-numbers {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 8px;
+    margin-left: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: padding 0.2s ,
+    margin 0.2s;
+}
+
+#number-one {
+    margin-left: 0px;
+}
+
+#number-one:hover {
+    padding: 6px;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin-left:  0px;
+    margin-right:  0px;
+}
+
+#number-two:hover {
+    padding: 6px;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin-left:  0px;
+    margin-right:  0px;
+}
+
+#number-three:hover {
+    padding: 6px;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin-left:  0px;
+    margin-right:  0px;
+}
