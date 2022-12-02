@@ -21,6 +21,7 @@
     padding-right: 12px;
     margin-top: 10px;
     cursor: pointer;
+    transition: box-shadow 0.15s, margin 0.1s;
 }
 
 .sombra:hover {
