@@ -1,26 +1,95 @@
 <!DOCTYPE html>
-
-<!-- !hell -->
-
+<html>
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <title>Exercises</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
 </head>
-
 <body>
-    <button class="direcciones" >Back</button>
-    <a href="https://www.google.com" class="paginas" target="_blank">1</2>
-    <a href="https://www.google.com" class="paginas" target="_blank">2</a>
-    <a href="https://www.google.com" class="paginas" target="_blank">3</a>
-    <a href="https://www.google.com" class="paginas" target="_blank">4</a>
-    <a href="https://www.google.com" class="paginas" target="_blank">5</a>
-    <button class="direcciones" >Next</button>
-    <br>
-    <button class="sombra">Sombra</button>
-    <br>
-    <button class="estirar">Estirar</button>
-    <br>
-    <button class="button-with-numbers" id="number-one">Uno</button>
-    <button class="button-with-numbers" id="number-two">Dos</button>
-    <button class="button-with-numbers" id="number-three">Tres</button>
+  <p>
+    <button onclick="
+    calculation += '1';
+    console.log(calculation);
+    ">1</button>
+
+    <button onclick="
+    calculation += '2';
+    console.log(calculation);"
+    >2</button>
+
+    <button onclick="
+    calculation += '3';
+    console.log(calculation);"
+    >3</button>
+
+    <button onclick="
+    calculation += ' + ';
+    console.log(calculation);"
+    >+</button>
+    
+    <button onclick="
+    calculation += ' - ';
+    console.log(calculation);"
+    >-</button>
+  </p>
+  <p>
+    <button onclick="
+    calculation += '4';
+    console.log(calculation);
+    ">4</button>
+
+    <button onclick="
+    calculation += '5';
+    console.log(calculation);"
+    >5</button>
+
+    <button onclick="
+    calculation += '6';
+    console.log(calculation);"
+    >6</button>
+
+    <button onclick="
+    calculation += ' * ';
+    console.log(calculation);"
+    >x</button>
+
+    <button onclick="
+    calculation += ' / ';
+    console.log(calculation);"
+    >÷</button>
+  </p>
+  <p>
+    <button onclick="
+    calculation += '7';
+    console.log(calculation);
+    ">7</button>
+
+    <button onclick="
+    calculation += '8';
+    console.log(calculation);"
+    >8</button>
+
+    <button onclick="
+    calculation += '9';
+    console.log(calculation);"
+    >9</button>
+
+    <button onclick="
+    calculation = eval(calculation);
+    console.log(calculation)
+    ">=</button>
+
+    <button onclick="
+    calculation = ''
+    console.log('Se han reiniciado los datos.')
+    ">AC</button>
+  </p>
+
+  <script>
+
+    let calculation = "";
+
+  </script>
+
 </body>
+</html>
