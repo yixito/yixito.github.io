@@ -8,7 +8,19 @@ button {
   color: white;
   font-style: bold;
   font-size: larger;
+  transition: 250ms;
 }
+
+button:hover {
+  opacity: 90%;
+  cursor: pointer;
+}
+
+button:active {
+  transition: 50ms;
+  opacity: 40%;
+}
+
 .number-button {
   background-color: rgb(0, 184, 83);
   border: none;
