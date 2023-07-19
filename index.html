@@ -1,104 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <title>Piedra Papel o Tijera</title>
 </head>
 <body>
-  <p>
-    <button onclick="
-    calculation += '1';
-    console.log(calculation);
-    " class="number-button">1</button>
 
-    <button onclick="
-    calculation += '2';
-    console.log(calculation);"
-    class="number-button">2</button>
+  <p>Piedra Papel o Tijera</p>
+  <button onclick="
 
-    <button onclick="
-    calculation += '3';
-    console.log(calculation);"
-    class="number-button">3</button>
-
-    <button onclick="
-    calculation += ' + ';
-    console.log(calculation);"
-    >+</button>
+    let humanMove = 'piedra';
+    let computerMove = '';
     
-    <button onclick="
-    calculation += ' - ';
-    console.log(calculation);"
-    >-</button>
-  </p>
-  <p>
-    <button onclick="
-    calculation += '4';
-    console.log(calculation);
-    "class="number-button">4</button>
 
-    <button onclick="
-    calculation += '5';
-    console.log(calculation);"
-    class="number-button">5</button>
+     let randomNumber = Math.random();
+    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+      computerMove = 'piedra';
+    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+      computerMove = 'papel';
+    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+      computerMove = 'tijera';
+    } else {
+      console.log(`De alguna forma hubo un error. randomNumber: ${randomNumber}`);
+    }
 
-    <button onclick="
-    calculation += '6';
-    console.log(calculation);"
-    class="number-button">6</button>
+    let result = '';
 
-    <button onclick="
-    calculation += ' * ';
-    console.log(calculation);"
-    >x</button>
+    if (computerMove === 'piedra') {
+      result = 'Empate.';
+    } else if (computerMove === 'papel') {
+      result = 'Perdiste.';
+    } else if (computerMove === 'tijera') {
+      result = 'Ganaste.'
+    }
 
-    <button onclick="
-    calculation += ' / ';
-    console.log(calculation);"
-    >÷</button>
-  </p>
-  <p>
-    <button onclick="
-    calculation += '7';
-    console.log(calculation);
-    "class="number-button">7</button>
-
-    <button onclick="
-    calculation += '8';
-    console.log(calculation);"
-    class="number-button">8</button>
-
-    <button onclick="
-    calculation += '9';
-    console.log(calculation);"
-    class="number-button">9</button>
-
-    <button onclick="
-    calculation = eval(calculation);
-    console.log(calculation);
-    alert(calculation);
-    ">=</button>
-
-    <button onclick="
-    calculation = ''
-    console.log('Se han reiniciado los datos.')
-    ">AC</button>
-  </p>
-
-  <p>
-    <button class="number-button" id="zero-button" onclick="
-    calculation += '0';
-    console.log(calculation);">
-      0
-    </button>
-  </p>
-
-  <script type="text/javascript">
-
-    let calculation = "";
+    console.log(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
+    alert(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
     
+  ">Piedra</button>
+  
+  <button onclick="
+  
+    humanMove = 'papel';
+    computerMove = '';
+    
+
+     randomNumber = Math.random();
+    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+      computerMove = 'piedra';
+    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+      computerMove = 'papel';
+    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+      computerMove = 'tijera';
+    } else {
+      console.log(`De alguna forma hubo un error. randomNumber: ${randomNumber}`);
+    }
+
+    result = '';
+
+    if (computerMove === 'piedra') {
+      result = 'Ganaste.';
+    } else if (computerMove === 'papel') {
+      result = 'Empate.';
+    } else if (computerMove === 'tijera') {
+      result = 'Perdiste.'
+    }
+
+    console.log(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
+    alert(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
+    
+  ">Papel</button>
+
+  <button onclick="
+    
+    humanMove = 'tijera';
+    computerMove = '';
+    
+
+     randomNumber = Math.random();
+    if (randomNumber >= 0 && randomNumber < 1 / 3) {
+      computerMove = 'piedra';
+    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+      computerMove = 'papel';
+    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+      computerMove = 'tijera';
+    } else {
+      console.log(`De alguna forma hubo un error. randomNumber: ${randomNumber}`);
+    }
+
+    result = '';
+
+    if (computerMove === 'piedra') {
+      result = 'Perdiste.';
+    } else if (computerMove === 'papel') {
+      result = 'Ganaste.';
+    } else if (computerMove === 'tijera') {
+      result = 'Empate.'
+    }
+
+    console.log(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
+    alert(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
+    
+  ">Tijera</button>
+
+  <script>
+
   </script>
 
 </body>
