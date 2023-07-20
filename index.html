@@ -1,115 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piedra Papel o Tijera</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piedra Papel o Tijera</title>
+  </head>
+  <body>
+    <p>Piedra Papel o Tijera</p>
+    <button
+      onclick="
+    playGame('piedra')
+  "
+    >
+      Piedra
+    </button>
 
-  <p>Piedra Papel o Tijera</p>
-  <button onclick="
+    <button
+      onclick="
+    playGame('papel')
+  "
+    >
+      Papel
+    </button>
 
-    let humanMove = 'piedra';
-    let computerMove = '';
-    
+    <button
+      onclick="
+    playGame('tijeras')
+  "
+    >
+      Tijera
+    </button>
 
-     let randomNumber = Math.random();
-    if (randomNumber >= 0 && randomNumber < 1 / 3) {
-      computerMove = 'piedra';
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-      computerMove = 'papel';
-    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-      computerMove = 'tijera';
-    } else {
-      console.log(`De alguna forma hubo un error. randomNumber: ${randomNumber}`);
-    }
+    <script>
+      let result = "";
+      let computerMove = "";
 
-    let result = '';
+      function pickComputerMove() {
+        const randomNumber = Math.random();
 
-    if (computerMove === 'piedra') {
-      result = 'Empate.';
-    } else if (computerMove === 'papel') {
-      result = 'Perdiste.';
-    } else if (computerMove === 'tijera') {
-      result = 'Ganaste.'
-    }
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = "piedra";
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          computerMove = "papel";
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          computerMove = "tijera";
+        } else {
+          console.log(
+            `De alguna forma hubo un error. randomNumber: ${randomNumber}`
+          );
+        }
+        return computerMove;
+      }
 
-    console.log(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
-    alert(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
-    console.log(randomNumber)
+      function playGame(playerMove) {
+        computerMove = pickComputerMove();
+        result = "";
 
-  ">Piedra</button>
-  
-  <button onclick="
-  
-    humanMove = 'papel';
-    computerMove = '';
-    
+        if (playerMove === "tijeras") {
+          if (computerMove === "piedra") {
+            result = "Perdiste.";
+          } else if (computerMove === "papel") {
+            result = "Ganaste.";
+          } else if (computerMove === "tijera") {
+            result = "Empate.";
+          }
 
-     randomNumber = Math.random();
-    if (randomNumber >= 0 && randomNumber < 1 / 3) {
-      computerMove = 'piedra';
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-      computerMove = 'papel';
-    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-      computerMove = 'tijera';
-    } else {
-      console.log(`De alguna forma hubo un error. randomNumber: ${randomNumber}`);
-    }
+        } else if (playerMove === "papel") {
+          if (computerMove === "piedra") {
+            result = "Ganaste.";
+          } else if (computerMove === "papel") {
+            result = "Empate.";
+          } else if (computerMove === "tijera") {
+            result = "Perdiste.";
+          }
+          
+        } else if (playerMove === "piedra") {
+          if (computerMove === "piedra") {
+            result = "Empate.";
+          } else if (computerMove === "papel") {
+            result = "Perdiste.";
+          } else if (computerMove === "tijera") {
+            result = "Ganaste.";
+          }
+        }
 
-    result = '';
-
-    if (computerMove === 'piedra') {
-      result = 'Ganaste.';
-    } else if (computerMove === 'papel') {
-      result = 'Empate.';
-    } else if (computerMove === 'tijera') {
-      result = 'Perdiste.'
-    }
-
-    console.log(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
-    alert(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
-
-console.log(randomNumber)    
-  ">Papel</button>
-
-  <button onclick="
-    
-    humanMove = 'tijera';
-    computerMove = '';
-    
-
-     randomNumber = Math.random();
-    if (randomNumber >= 0 && randomNumber < 1 / 3) {
-      computerMove = 'piedra';
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-      computerMove = 'papel';
-    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-      computerMove = 'tijera';
-    } else {
-      console.log(`De alguna forma hubo un error. randomNumber: ${randomNumber}`);
-    }
-
-    result = '';
-
-    if (computerMove === 'piedra') {
-      result = 'Perdiste.';
-    } else if (computerMove === 'papel') {
-      result = 'Ganaste.';
-    } else if (computerMove === 'tijera') {
-      result = 'Empate.'
-    }
-
-    console.log(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
-    alert(`Tu elegiste ${humanMove}. La computadora eligió ${computerMove}. ${result}`);
-    
-console.log(randomNumber)
-  ">Tijera</button>
-
-  <script>
-
-  </script>
-
-</body>
+        console.log(
+          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}`
+        );
+        alert(
+          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}`
+        );
+      }
+    </script>
+  </body>
 </html>

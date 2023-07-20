@@ -1,3 +1,3 @@
 # yixito.github.io
 
-dont use this, this is a very bad calculator.
+i mean, its not good but... nvm
