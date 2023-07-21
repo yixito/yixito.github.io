@@ -10,40 +10,64 @@
     <button
       onclick="
     playGame('piedra')
-  "
-    >
+  ">
       Piedra
     </button>
 
     <button
       onclick="
     playGame('papel')
-  "
-    >
+  ">
       Papel
     </button>
 
     <button
       onclick="
     playGame('tijeras')
-  "
-    >
+  ">
       Tijera
     </button>
 
+    <button
+      onclick="
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score'); 
+      console.log('Se ha reiniciado la puntuación')
+      alert('Se ha reiniciado la puntuación')
+    ">
+      Reiniciar puntuacion
+    </button>
     <script>
-      let result = "";
-      let computerMove = "";
+      let score = JSON.parse(localStorage.getItem('score'));
+      
+      if (score) {
+        console.log('Se han recuperado los datos.')
+      } else {
+        console.log('No se han encontrado datos guardados.')
+      }
+
+      if (score === null) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0,
+        };
+      }
+
+      let result = '';
+      let computerMove = '';
 
       function pickComputerMove() {
         const randomNumber = Math.random();
 
         if (randomNumber >= 0 && randomNumber < 1 / 3) {
-          computerMove = "piedra";
+          computerMove = 'piedra';
         } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-          computerMove = "papel";
+          computerMove = 'papel';
         } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-          computerMove = "tijera";
+          computerMove = 'tijera';
         } else {
           console.log(
             `De alguna forma hubo un error. randomNumber: ${randomNumber}`
@@ -54,41 +78,51 @@
 
       function playGame(playerMove) {
         computerMove = pickComputerMove();
-        result = "";
+        result = '';
 
-        if (playerMove === "tijeras") {
-          if (computerMove === "piedra") {
-            result = "Perdiste.";
-          } else if (computerMove === "papel") {
-            result = "Ganaste.";
-          } else if (computerMove === "tijera") {
-            result = "Empate.";
+        if (playerMove === 'tijeras') {
+          if (computerMove === 'piedra') {
+            result = 'Perdiste.';
+          } else if (computerMove === 'papel') {
+            result = 'Ganaste.';
+          } else if (computerMove === 'tijera') {
+            result = 'Empate.';
           }
-
-        } else if (playerMove === "papel") {
-          if (computerMove === "piedra") {
-            result = "Ganaste.";
-          } else if (computerMove === "papel") {
-            result = "Empate.";
-          } else if (computerMove === "tijera") {
-            result = "Perdiste.";
+        } else if (playerMove === 'papel') {
+          if (computerMove === 'piedra') {
+            result = 'Ganaste.';
+          } else if (computerMove === 'papel') {
+            result = 'Empate.';
+          } else if (computerMove === 'tijera') {
+            result = 'Perdiste.';
           }
-          
-        } else if (playerMove === "piedra") {
-          if (computerMove === "piedra") {
-            result = "Empate.";
-          } else if (computerMove === "papel") {
-            result = "Perdiste.";
-          } else if (computerMove === "tijera") {
-            result = "Ganaste.";
+        } else if (playerMove === 'piedra') {
+          if (computerMove === 'piedra') {
+            result = 'Empate.';
+          } else if (computerMove === 'papel') {
+            result = 'Perdiste.';
+          } else if (computerMove === 'tijera') {
+            result = 'Ganaste.';
           }
         }
 
+        if (result === 'Ganaste.') {
+          score.wins++;
+        } else if (result === 'Perdiste.') {
+          score.losses++;
+        } else if (result === 'Empate.') {
+          score.ties++;
+        }
+
+        localStorage.setItem('score', JSON.stringify(score));
+
         console.log(
-          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}`
+          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}
+Ganadas: ${score.wins}, Perdidas: ${score.losses}, Empates: ${score.ties}`
         );
         alert(
-          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}`
+          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}
+Ganadas: ${score.wins}, Perdidas: ${score.losses}, Empates: ${score.ties}`
         );
       }
     </script>
