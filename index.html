@@ -40,21 +40,25 @@
       Reiniciar puntuacion
     </button>
     <script>
-      let score = JSON.parse(localStorage.getItem('score'));
-      
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
       if (score) {
-        console.log('Se han recuperado los datos.')
+        console.log('Se han recuperado los datos.');
       } else {
-        console.log('No se han encontrado datos guardados.')
+        console.log('No se han encontrado datos guardados.');
       }
 
-      if (score === null) {
-        score = {
-          wins: 0,
-          losses: 0,
-          ties: 0,
-        };
-      }
+      // if (!score) {
+      //   score = {
+      //     wins: 0,
+      //     losses: 0,
+      //     ties: 0,
+      //   };
+      // }
 
       let result = '';
       let computerMove = '';
