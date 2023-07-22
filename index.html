@@ -28,12 +28,17 @@
       Tijera
     </button>
 
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+
     <button
       onclick="
       score.wins = 0;
       score.losses = 0;
       score.ties = 0;
       localStorage.removeItem('score'); 
+      updateScoreElement();
       console.log('Se ha reiniciado la puntuación')
       alert('Se ha reiniciado la puntuación')
     ">
@@ -52,16 +57,13 @@
         console.log('No se han encontrado datos guardados.');
       }
 
-      // if (!score) {
-      //   score = {
-      //     wins: 0,
-      //     losses: 0,
-      //     ties: 0,
-      //   };
-      // }
-
       let result = '';
       let computerMove = '';
+      let jsScore = document.querySelector('.js-score');
+      let jsMoves = document.querySelector('.js-moves');
+      let jsResult = document.querySelector('.js-result');
+
+      updateScoreElement();
 
       function pickComputerMove() {
         const randomNumber = Math.random();
@@ -118,16 +120,21 @@
           score.ties++;
         }
 
-        localStorage.setItem('score', JSON.stringify(score));
-
         console.log(
           `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}
 Ganadas: ${score.wins}, Perdidas: ${score.losses}, Empates: ${score.ties}`
         );
-        alert(
-          `Tu elegiste ${playerMove}. La computadora eligió ${computerMove}. ${result}
-Ganadas: ${score.wins}, Perdidas: ${score.losses}, Empates: ${score.ties}`
-        );
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        jsResult.innerText = `${result}`;
+
+        jsMoves.innerText = `Tu: ${playerMove} - ${computerMove} :Computadora`;
+        updateScoreElement();
+      }
+
+      function updateScoreElement() {
+        jsScore.innerText = `Ganadas: ${score.wins}, Perdidas: ${score.losses}, Empates: ${score.ties}`;
       }
     </script>
   </body>
