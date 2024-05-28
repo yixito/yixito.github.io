@@ -12,7 +12,8 @@
         onclick="
     updateCalculation('1');
     "
-        class="number-button">
+        class="number-button"
+      >
         1
       </button>
 
@@ -20,7 +21,8 @@
         onclick="
     updateCalculation('2');
     "
-        class="number-button">
+        class="number-button"
+      >
         2
       </button>
 
@@ -28,21 +30,24 @@
         onclick="
     updateCalculation('3');
     "
-        class="number-button">
+        class="number-button"
+      >
         3
       </button>
 
       <button
         onclick="
     updateCalculation(' + ');
-    ">
+    "
+      >
         +
       </button>
 
       <button
         onclick="
     updateCalculation(' - ');
-    ">
+    "
+      >
         -
       </button>
     </p>
@@ -51,7 +56,8 @@
         onclick="
     updateCalculation('4');
     "
-        class="number-button">
+        class="number-button"
+      >
         4
       </button>
 
@@ -59,7 +65,8 @@
         onclick="
     updateCalculation('5');
     "
-        class="number-button">
+        class="number-button"
+      >
         5
       </button>
 
@@ -67,21 +74,24 @@
         onclick="
     updateCalculation('6');
     "
-        class="number-button">
+        class="number-button"
+      >
         6
       </button>
 
       <button
         onclick="
     updateCalculation(' * ');
-    ">
+    "
+      >
         x
       </button>
 
       <button
         onclick="
     updateCalculation(' / ');
-    ">
+    "
+      >
         ÷
       </button>
     </p>
@@ -90,7 +100,8 @@
         onclick="
     updateCalculation('7');
     "
-        class="number-button">
+        class="number-button"
+      >
         7
       </button>
 
@@ -98,7 +109,8 @@
         onclick="
     updateCalculation('8');
     "
-        class="number-button">
+        class="number-button"
+      >
         8
       </button>
 
@@ -106,7 +118,8 @@
         onclick="
     updateCalculation('9');
     "
-        class="number-button">
+        class="number-button"
+      >
         9
       </button>
 
@@ -115,7 +128,8 @@
     calculation = eval(calculation);
     console.log(calculation);
     jsResultado.innerHTML = calculation
-    ">
+    "
+      >
         =
       </button>
 
@@ -125,7 +139,8 @@
     jsResultado.innerHTML = ''
     localStorage.setItem('calculation', JSON.stringify(calculation));    
     console.log('Se han reiniciado los datos.')
-    ">
+    "
+      >
         AC
       </button>
     </p>
@@ -135,31 +150,31 @@
         class="number-button"
         id="zero-button"
         onclick="
-      updateCalculation('0');  ">
+      updateCalculation('0');  "
+      >
         0
       </button>
     </p>
 
     <p class="resultado"></p>
     <script type="text/javascript">
-      let jsResultado = document.querySelector('.resultado')
-      let calculation = JSON.parse(localStorage.getItem('calculation')) || '';
+      let jsResultado = document.querySelector(".resultado");
+      let calculation = JSON.parse(localStorage.getItem("calculation")) || "";
 
       if (calculation) {
-        console.log('Se han recuperado los datos.');
+        console.log("Se han recuperado los datos.");
         console.log(calculation);
-        jsResultado.innerHTML = calculation
-
+        jsResultado.innerHTML = calculation;
       } else {
-        console.log('No se han encontrado datos guardados.')
+        console.log("No se han encontrado datos guardados.");
       }
 
       function updateCalculation(digit) {
         calculation += digit;
         console.log(calculation);
 
-        jsResultado.innerHTML = calculation
-        localStorage.setItem('calculation', JSON.stringify(calculation));
+        jsResultado.innerHTML = calculation;
+        localStorage.setItem("calculation", JSON.stringify(calculation));
       }
     </script>
   </body>

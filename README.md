@@ -1,3 +1,3 @@
 # yixito.github.io
 
-Aqui no hay nada.
+this is a terrible project, please dont check it out. 🥸

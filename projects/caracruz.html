@@ -10,62 +10,64 @@
     <button
       onclick="
       playGame('cara');
-    ">
+    "
+    >
       Cara
     </button>
     <button
       onclick="
       playGame('cruz');
-    ">
+    "
+    >
       Cruz
     </button>
     <p class="js-coinResult"></p>
     <p class="js-puntuacion"></p>
     <script>
-      let prediction = '';
-      let coinResult = '';
-      let coin = '';
+      let prediction = "";
+      let coinResult = "";
+      let coin = "";
       let randomNumber = Math.random();
-      let jsCoinResult = document.querySelector('.js-coinResult');
-      let jsPuntuacion = document.querySelector('.js-puntuacion')
+      let jsCoinResult = document.querySelector(".js-coinResult");
+      let jsPuntuacion = document.querySelector(".js-puntuacion");
 
-      const score = JSON.parse(localStorage.getItem('score')) || {
+      const score = JSON.parse(localStorage.getItem("score")) || {
         ganadas: 0,
         perdidas: 0,
       };
 
       if (score) {
-        console.log('Se han recuperado los datos.');
+        console.log("Se han recuperado los datos.");
         console.log(score);
       } else {
-        console.log('No se han encontrado datos.');
+        console.log("No se han encontrado datos.");
         console.log(score);
       }
 
       function playGame(prediction) {
-        coinResult = '';
-        coin = '';
+        coinResult = "";
+        coin = "";
 
         coinGenerator();
 
         if (coin === prediction) {
-          coinResult = 'Lo adivinaste!';
+          coinResult = "Lo adivinaste!";
           score.ganadas++;
         } else {
-          coinResult = 'No lo adivinaste!';
+          coinResult = "No lo adivinaste!";
           score.perdidas++;
         }
 
-        localStorage.setItem('score', JSON.stringify(score));
+        localStorage.setItem("score", JSON.stringify(score));
 
         jsCoinResult.innerHTML = `Tu has elegido ${prediction}, y tocó ${coin}. ${coinResult}`;
-        jsPuntuacion.innerHTML = `Ganadas: ${score.ganadas}, Perdidas ${score.perdidas}.`
+        jsPuntuacion.innerHTML = `Ganadas: ${score.ganadas}, Perdidas ${score.perdidas}.`;
       }
 
       function coinGenerator() {
         randomNumber = Math.random();
 
-        randomNumber < 0.5 ? (coin = 'cara') : (coin = 'cruz');
+        randomNumber < 0.5 ? (coin = "cara") : (coin = "cruz");
         return coin;
       }
     </script>

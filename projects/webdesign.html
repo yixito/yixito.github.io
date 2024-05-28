@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WOW</title>
+    <link rel="stylesheet" href="/styles/webdesign.css" />
+  </head>
+  <body>
+    <div class="test1">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque
+      quisquam veniam quas aliquam minima? Architecto in ipsum nulla numquam
+      pariatur error veniam sequi aspernatur quae accusantium? Inventore,
+      delectus perspiciatis.
+      <div class="test2">PENE</div>
+    </div>
+
+    <div class="test1">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto ratione
+      velit vitae voluptate labore? Autem unde vero dolorem blanditiis corporis
+      deleniti voluptate molestiae? Sed atque minima temporibus consequatur.
+      Molestias, nostrum.
+    </div>
+
+    <div class="container1">
+      <img src="assets/img1.jpg" alt="" class="image" onclick="audioPlay(0)" />
+      <img src="assets/img2.jpg" alt="" class="image" onclick="audioPlay(1)" />
+      <img src="assets/img3.jpg" alt="" class="image" onclick="audioPlay(2)" />
+    </div>
+
+    <div id="degradado"></div>
+  </body>
+</html>
+
+<script>
+  let audioPack = ["assets/cry.mp3", "assets/hi.mp3", "assets/hmm.mp3"];
+  function audioPlay(id) {
+    var audio = new Audio(`${audioPack[id]}`);
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play();
+  }
+</script>
